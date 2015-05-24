@@ -1,2 +1,2 @@
 # 2015-sat-pfinal
-Práctica final end Django de la asignatura SAT
+Práctica final en Django de la asignatura SAT
