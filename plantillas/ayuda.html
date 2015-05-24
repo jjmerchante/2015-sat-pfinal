@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block contenidoCentro %}
+
+    <div class="container">
+      <p>La estructura de la aplicación web se basa en:</p>
+      <ul>
+        <li>Una <a href='/'>página principal</a> que consta de las 10 próximas actividades en Madrid.</li>
+        <li>Una <a href='/todas'>página</a> que consta de todas lasactividades que hay, o han pasado en Madrid.</li>
+        <li>Una página de ayuda, la cual se está mostrando.</li>
+        <li>Páginas de los distintos usuarios registrados.</li>
+      </ul>
+      <p>El funcionamiento se basa principalmente en seleccionar las actividades que a un usuario le interesen y añadirlas a una página personal que podrá verla cualquier persona.</p>
+      <p>Un usuario si quiere añadir una nueva página a su perfil tendrá que entrar con su cuenta y seleccionar aquellas actividades que le interesen desde la página <a href=/todas>todas</a>, donde podrán aplicarse diferentes filtros de búsqueda como el título, la fecha o el precio.</p>
+      <p>Además cualquier usuario registrado podrá seleccionar el estilo de la página web a partir de una serie de parámetros que se encuentran en su página de usuario.</p>
+      <p>También cualquier usuario o visitante podrá valorar las actividades que más le gusten o interesen.</p>
+      <p>Para estar más informados pueden obtener el canal rss de las próximas 10 actividades desde la <a href='/'>página de inicio</a> o también, obtener el rss de las actividades de un usuario desde su página personal. </p>
+      <p>Destacar, por si fuera de interés que cualquier página de usuario indica las visitas que ha recibido.
+      <p>Por último, para ver lo que opina la gente sobre las distintas actividades, los usuarios registrados podrán comentarlas.</p>
+      <p>Así que... ¿a qúe esperas? <a href="/registrar">registrate ahora mismo</a>.</p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base_actividades.html" %}
+
+{% block opcionesInferiores %}
+  <!Usuarios>
+  <div id="usuarios">
+      <h3>Usuarios disponibles</h3>
+      {% for usuario in usuarios %}
+      <div id="usuario">
+          {% if usuario.titulo == "" %}
+              <h3><a href=/{{usuario.nombre}} >Página de {{usuario.nombre}}</a></h3>
+          {% else %}
+              <h3><a href=/{{usuario.nombre}} >{{usuario.titulo}}</a></h3>
+          {% endif %}
+          <ul class="list-group">
+              <li class="list-group-item">{{usuario.nombre}}</li>
+              <li class="list-group-item">{{usuario.descripcion}}</li>
+          </ul>
+      </div>
+      {% endfor %}
+  </div>
+{% endblock %}
+
+{% block rss %}
+  <a href="/rss"><img src="/files/images/rss.gif"></a>
+{% endblock %}

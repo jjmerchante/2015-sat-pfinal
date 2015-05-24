@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block contenidoCentro %}
+
+    <!Para registro>
+    {% if error%}
+       <div class="alert alert-warning" role="alert">{{error}}</div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Introduce tu datos personales</h4>
+      </div>
+      <div class="panel-body">
+        <form action="/registrar" method="post">
+        {% csrf_token %}
+        <ul class="list-group">
+          <li  class="list-group-item">
+              Nombre*<input type="text" name="nombre" class="form-control input-sm" placeholder="Nombre*">
+          </li>
+          <li class="list-group-item">
+              Título página<input type="text" name="titulo" class="form-control input-sm" placeholder="Titulo de página">
+          </li>
+          <li class="list-group-item">
+            Descripción<textarea class="form-control" rows="3" name="descripcion" placeholder="Descripción"></textarea>
+          </li>
+          <li class="list-group-item">
+          Contraseña*
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                  <input type="password" name="password" class="form-control input-sm" placeholder="Contraseña*">
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <input type="submit" value="Registrar" class="btn btn-info btn-block">
+          </li>
+        </ul>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+    img {
+        max-width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;      
+    }
+        
+    div#actividad {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: solid #e1e1e8;
+        border-radius: 10px;
+        margin-bottom: 5px; 
+    }
+        
+    div#filtros {
+        padding: 14px;
+        background-color: #d0d0d0;
+        border: solid #e1e1e8;
+        border-radius: 5px;
+        margin-bottom: 12px;      
+    }
+      
+    div#usuarios {
+        padding: 10px;
+        background-color: #d0d0d0;
+        border: solid #e1e1e8;
+        border-radius: 5px;
+        margin-bottom: 12px;
+    }
+      
+    div#usuario {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: solid #e1e1e8;
+        border-radius: 5px;
+        margin-bottom: 12px;  
+    }
+      
+    h1 {
+      object-position: center; 
+    }
+      
+    div#update{
+        padding: 10px;
+        background-color: #e6e6e6;
+        border: solid #e1e1e8;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    div#parametros{
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: solid #e1e1e8;
+        border-radius: 5px;
+        margin-bottom: 12px;         
+
+    }
+
+    ul#menu{
+        background-color: #222; 
+        font-size: 15px;
+    }
+
+    form#login{
+        background-color: black; 
+    }
+
+    footer{
+        padding: 10px;
+        text-align: center;
+        background-color: #808080;
+        border-top: solid #c0c0c0;
+        margin-bottom: 5px; 
+        color: #ffffff;   
+        margin-top: 20px;
+    }
+
+    .carousel-inner   img {
+          width: 100%;
+          margin: auto;
+    }
+
+    .inline{
+        display: inline;
+    }
+
+    body {
+        background-color: {{ backcolor|default:"white" }};
+        color: {{ colorFuente|default:"black" }};
+        font-size: {{ sizeFuente|default:"11" }}pt;
+    }
+

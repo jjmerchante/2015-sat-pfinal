@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block contenidoCentro %}
+    {% if actividad %}
+    <div id="actividad">
+        <h4>{{ actividad.titulo }}</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Id: {{actividad.id}}</li>
+            <li class="list-group-item">Fecha: {{actividad.fecha|date:"d-m-Y"}}</li>
+            <li class="list-group-item">Hora: {{actividad.hora |date:"H:i"}}</li>
+            <li class="list-group-item">Larga duración: {{actividad.larga_duracion}}</li>
+            <li class="list-group-item">Precio: {{actividad.precio}} euros</li>
+            <li class="list-group-item"><a href={{actividad.url}}>Página original</a></li>
+            <li class="list-group-item">Descripción: {{descripcion}}</li>
+        </ul>
+        <button type="button" onclick="postValoracion({{actividad.id}})" class="btn btn-default" aria-label="Left Align" class="inline">
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{actividad.valoracion}}
+        </button>
+        <p id="valorado{{actividad.id}}" class="inline"></p>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>{{comentarios|length}} comentarios</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+            {% for comentario in comentarios %}
+                <li class="list-group-item">
+                    <p><a href="/{{comentario.usuario.nombre}}">{{comentario.usuario.nombre}}</a> escribió...</p>
+                    <p>{{comentario.comentario}}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="panel-footer">
+            {% if request.user.is_authenticated %}
+            <h2>Publica tu comentario</h2>
+            <form method="post" action="/actividad/{{actividad.id}}/comentario">
+                <textarea class="form-control" rows="3" name="comentario" placeholder="Escribe aquí tu comentario..."></textarea>
+                <input type="submit" value="Comentar" class="btn btn-info btn-block">
+            </form>
+            {% else %}
+            <h4>Tienes que estar registrado para poner tu propio comentario</h4>
+            {% endif %}
+            <br>
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            <h3>Lo sentimos, la actividad que está solicitando no está disponible</h3>
+        </div>
+    {% endif %}
+{% endblock %}
+

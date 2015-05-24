@@ -1,0 +1,54 @@
+{% extends "base_actividades.html" %}
+
+{% block opcionesSuperiores %}
+
+  <!Parámetros para el usuario>
+  {% if UsuarioPagina.nombre == request.user.username%}
+  <div id="parametros">
+      <form action="/{{UsuarioPagina.nombre}}/parametros" method="post">
+          {% csrf_token %}
+          <ul class="list-group">
+              <li class="list-group-item">
+              Título <input type="text" name="title" value="{{UsuarioPagina.titulo}}" class="form-control">
+              </li>
+              <li class="list-group-item">
+                Descripción: <textarea class="form-control" rows="3" name="descripcion"></textarea>
+              </li>
+              <li class="list-group-item">
+              Tamaño de fuente: 
+              <input type="number" name="size" min="1" value="11">
+              </li>
+              <li class="list-group-item">
+              Color de fuente:
+              <input type="text" name="color" value="#333">
+              </li>
+              <li class="list-group-item">
+              Color de fondo:
+              <input type="text" name="background" value="#FFF">
+              </li>
+          </ul>
+          <input type="submit" class="btn btn-primary" value="Cambiar parametros">
+      </form>
+  </div>
+  {% endif %}
+  {% if UsuarioPagina %}
+    <div class="alert alert-info" role="alert">Esta página ha sido visitada {{UsuarioPagina.visitasPerfill}} veces</div>
+  {% endif %}
+{% endblock %}
+
+
+{% block opcionesInferiores %}
+  <!Paginas>
+  <nav>
+      <ul class="pagination">
+      {% for num in numRangePag%}
+          <li><a href="{{request.path}}?page={{num}}">{{num}}</a></li>
+      {%endfor%}
+      </ul>
+  </nav>
+  <!FIN paginas>
+{% endblock %}
+
+{% block rss %}
+  <a href="{{request.path}}/rss"><img src="/files/images/rss.gif"></a>
+{% endblock %}

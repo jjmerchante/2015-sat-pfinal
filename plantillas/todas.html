@@ -1,0 +1,50 @@
+{% extends "base_actividades.html" %}
+
+{% block opcionesSuperiores %}
+
+  <!Filtros>
+  <div id="filtros">
+    <form action="" method="get">
+        <ul class="list-group">
+            <li class="list-group-item">
+            Título <input type="text" name="title">
+            </li>
+            <li class="list-group-item">
+            Antes del
+            <input type="number" name="prevdia" min="1" max="31" placeholder="día">
+            <input type="number" name="prevmes" min="1" max="12" placeholder="mes">
+            <input type="number" name="prevano" min="2000" max="2050" placeholder="año">
+            </li>
+            <li class="list-group-item">
+            Después del
+            <input type="number" name="postdia" min="1" max="31" placeholder="día">
+            <input type="number" name="postmes" min="1" max="12" placeholder="mes">
+            <input type="number" name="postano" min="2000" max="2050" placeholder="año">
+            </li>
+            <li class="list-group-item">
+            Precio <input type="number" name="precio" min="0">
+            </li>
+        </ul>
+        <input type="submit" class="btn btn-primary" value="Filtrar actividades">
+    </form>
+  </div>
+  <div id="update">
+    {% if request.user.is_authenticated %}
+      <p>{{actividades | length}} actividades disponibles. Última actualización: {{last_update}}</p>
+      <form action="/actualizar">
+        <button type="submit" class="btn btn-primary">Actualizar actividades</button>
+      </form>
+    {% else %}
+      <p>Autentícate y podrás actualizar nuevas actividades, así como elegir nuevas actividades para tu página.</p>
+    {% endif %}
+  </div>
+
+{% endblock %}
+
+
+{% block opcionesActividad %}
+  {% if request.user.is_authenticated %}
+    <button type="button" onclick="postActividad({{actividad.id}})" class="btn btn-default" aria-label="Left Align" class="inline">Agregar</button>
+    <p class="inline" id="agregado{{actividad.id}}"></p>
+    {% endif %}
+{% endblock %}
